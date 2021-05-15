@@ -239,3 +239,66 @@
 // console.log(getDiscount(5000));
 // console.log(getDiscount(20000));
 // console.log(getDiscount(50000));
+
+// ================================== ЗАДАЧА 25 ==================================
+// Задание;
+// Выполни рефакторинг решения задачи «Склад товаров», заменив инструкцию if...else тернарным оператором.
+
+// Тесты;
+// Объявлена функция checkStorage(available, ordered).
+// Использован тернарный оператор.
+// Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(100, 130) возвращает "Not enough goods in stock!"
+// Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(200, 150) возвращает "The order is accepted, our manager will contact you"
+// Вызов checkStorage(150, 180) возвращает "Not enough goods in stock!"
+
+// ____________________ ^ ____________________
+// function checkStorage(available, ordered) {
+//   let message;
+//   message =
+//     ordered > available
+//       ? 'Not enough goods in stock!'
+//       : 'The order is accepted, our manager will contact you';
+//   return message;
+// }
+
+// console.log(checkStorage(100, 50));
+// console.log(checkStorage(100, 130));
+// console.log(checkStorage(200, 20));
+// console.log(checkStorage(200, 150));
+// console.log(checkStorage(150, 180));
+
+// ================================== ЗАДАЧА 26 ==================================
+// Задача: проверка пароля
+
+// Задание;
+// Функция checkPassword(password) сравнивает переданный ей пароль (параметр password) с
+// сохранённым паролем администратора(константа ADMIN_PASSWORD) и возвращает строку с сообщением о результате.
+// Используя тернарный оператор дополни функцию так, что:
+// Если значения password и ADMIN_PASSWORD совпадают, присвой переменной message строку "Access is allowed".
+// В противном случае, присвой message строку "Access denied, wrong password!".
+
+// Тесты;
+// Объявлена функция checkPassword(password)
+// Использован тернарный оператор
+// Вызов checkPassword("jqueryismyjam") возвращает "Access is allowed"
+// Вызов checkPassword("angul4r1sl1f3") возвращает "Access denied, wrong password!"
+// Вызов checkPassword("r3actsux") возвращает "Access denied, wrong password!"
+
+// ____________________ ^ ____________________
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = 'jqueryismyjam';
+//   let message;
+//   // Change code below this line
+//   message =
+//     password === ADMIN_PASSWORD
+//       ? 'Access is allowed'
+//       : 'Access denied, wrong password!';
+//   // Change code above this line
+//   return message;
+// }
+
+// console.log(checkPassword('jqueryismyjam'));
+// console.log(checkPassword('angul4r1sl1f3'));
+// console.log(checkPassword('r3actsux'));
