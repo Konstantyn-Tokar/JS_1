@@ -302,3 +302,163 @@
 // console.log(checkPassword('jqueryismyjam'));
 // console.log(checkPassword('angul4r1sl1f3'));
 // console.log(checkPassword('r3actsux'));
+
+// ================================== ЗАДАЧА 27 ==================================
+// Инструкция switch
+
+// Задание;
+// Функция getSubscriptionPrice(type) получает строку с типом подписки пользователя (параметр type), проверяет её на совпадение с тремя возможными типами ежемесячной подписки и возвращает цену хранящуюся в переменной price.
+
+// Если значение параметра type это строка:
+
+// "starter" - цена подписки 0 кредитов.
+// "professional" - цена подписки 20 кредитов.
+// "organization" - цена подписки 50 кредитов.
+// Изначально в теле функции была инструкция if...else, которая выглядела вот так.
+// _____________________________________________________________________________
+// if (type === 'starter') {
+//   price = 0;
+// } else if (type === 'professional') {
+//   price = 20;
+// } else if (type === 'organization') {
+//   price = 50;
+// }
+// _____________________________________________________________________________
+// После рефакторинга инструкция if..else была заменена на switch. Дополни код инструкции switch, чтобы функция работала правильно.
+
+// Тесты;
+// Объявлена функция getSubscriptionPrice(type)
+// Вызов getSubscriptionPrice("professional") возвращает число 20
+// Вызов getSubscriptionPrice("organization") возвращает число 50
+// Вызов getSubscriptionPrice("starter") возвращает число 0
+
+// ____________________ ^ ____________________
+// function getSubscriptionPrice(type) {
+//   let price;
+//   // Change code below this line
+
+//   switch (
+//     type // Change this line
+//   ) {
+//     case 'starter': // Change this line
+//       price = 0; // Change this line
+//       break;
+
+//     case 'professional': // Change this line
+//       price = 20; // Change this line
+//       break;
+
+//     case 'organization': // Change this line
+//       price = 50; // Change this line
+//       break;
+//   }
+
+//   // Change code above this line
+//   return price;
+// }
+// console.log(getSubscriptionPrice('professional'));
+// console.log(getSubscriptionPrice('organization'));
+// console.log(getSubscriptionPrice('starter'));
+
+// ================================== ЗАДАЧА 28 ==================================
+// Инструкция switch c блоком default
+
+// Задание;
+// Функция checkPassword(password) получает пароль в параметр password, проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD и возвращает сообщение о результате сравнения, хранящееся в переменной message.
+
+// Если значение параметра password:
+
+// равно null, значит пользователь отменил операцию и в message записывается строка "Canceled by user!".
+// совпадает со значением ADMIN_PASSWORD, в переменную message присваивается строка "Welcome!".
+// не удобвлетворяет ни одному из предыдущих условий, в переменную message записывается строка "Access denied, wrong password!".
+// Проведи рефакторинг кода, заменив инструкцию if..else на switch, и не забудь о блоке default (аналог else).
+
+// Тесты;
+// Объявлена функция checkPassword(password)
+// Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
+// Вызов checkPassword(null) возвращает "Canceled by user!"
+// Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
+// Вызов checkPassword('"jqueryismyjam") возвращает "Welcome!"
+
+// ____________________ ^ ____________________
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = 'jqueryismyjam';
+//   let message;
+
+//   switch (password) {
+//     case null:
+//       message = 'Canceled by user!';
+//       break;
+
+//     case ADMIN_PASSWORD:
+//       message = 'Welcome!';
+//       break;
+
+//     default:
+//       message = 'Access denied, wrong password!';
+//   }
+
+//   // Change code above this line
+//   return message;
+// }
+// console.log(checkPassword('mangohackzor'));
+// console.log(checkPassword(null));
+// console.log(checkPassword('jqueryismyjam'));
+
+// ================================== ЗАДАЧА 29 ==================================
+// Задача: доставка товара
+// Задание;
+// Функция getShippingCost(country) должна проверять возможность доставки товара в страну пользователя (параметр country) и возвращать сообщение о результате хранящееся в переменной message.
+// Обязательно используй инструкцию switch.
+// Формат возвращаемой строки "Shipping to <country> will cost <price> credits", где вместо <country> и <price> необходимо подставить соотвествующие значения.
+// Список стран и стоимость доставки:
+// China - 100 кредитов
+// Chile - 250 кредитов
+// Australia - 170 кредитов
+// Jamaica - 120 кредитов
+// Из списка видно, что доставка есть не везде. Если указанной страны нет в списке, то функция должна вернуть строку "Sorry, there is no delivery to your country"
+
+// Тесты;
+// Объявлена функция getShippingCost(country)
+// В теле функции использована инструкция switch
+// Вызов getShippingCost("Australia") возвращает "Shipping to Australia will cost 170 credits"
+// Вызов getShippingCost("Germany") возвращает "Sorry, there is no delivery to your country"
+// Вызов getShippingCost("China") возвращает "Shipping to China will cost 100 credits"
+// Вызов getShippingCost("Chile") возвращает "Shipping to Chile will cost 250 credits"
+// Вызов getShippingCost("Jamaica") возвращает "Shipping to Jamaica will cost 120 credits"
+// Вызов getShippingCost("Sweden") возвращает "Sorry, there is no delivery to your country"
+
+// ____________________ ^ ____________________
+function getShippingCost(country) {
+  let message;
+  // Change code below this line
+  switch (country) {
+    case 'China':
+      message = 'Shipping to China will cost 100 credits';
+      break;
+
+    case 'Chile':
+      message = 'Shipping to Chile will cost 250 credits';
+      break;
+
+    case 'Australia':
+      message = 'Shipping to Australia will cost 170 credits';
+      break;
+
+    case 'Jamaica':
+      message = 'Shipping to Jamaica will cost 120 credits';
+      break;
+
+    default:
+      message = 'Sorry, there is no delivery to your country';
+  }
+  // Change code above this line
+  return message;
+}
+
+console.log(getShippingCost('Australia'));
+console.log(getShippingCost('Germany'));
+console.log(getShippingCost('China'));
+console.log(getShippingCost('Chile'));
+console.log(getShippingCost('Jamaica'));
+console.log(getShippingCost('Sweden'));
