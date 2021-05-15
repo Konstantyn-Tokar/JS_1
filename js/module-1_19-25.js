@@ -549,22 +549,133 @@
 // console.log(getSubstring('Hello world', 11));
 // console.log(getSubstring('Hello world', 0));
 
-function formatMessage(message, maxLength) {
-  let result;
-  // Change code below this line
+// ================================== ЗАДАЧА 33 ==================================
+// Задача: форматирование сообщения4
 
-  if (message.length >= maxLength) {
-    result = message;
-  } else if (message.length <= maxLength) {
-    result = `${message.slice(0, maxLength)}...`;
-  } else {
-    console.log('Invalid subscription type');
-  }
-  return result;
-}
-console.log(formatMessage('Curabitur ligula sapien', 16));
-console.log(formatMessage('Curabitur ligula sapien', 23));
-console.log(formatMessage('Vestibulum facilisis purus nec', 20));
-console.log(formatMessage('Vestibulum facilisis purus nec', 30));
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));
-console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41));
+// Задание;
+// Функция formatMessage(message, maxLength) принимает строку (параметр message) и форматирует её, если длина превышает значение в параметре maxLength.
+
+// Дополни код функции так, что если длина строки:
+
+// не превышает maxLength, функция возвращает её в исходном виде.
+// больше maxLength, то функция обрезает строку до maxLength символов и добавляет в конец троеточие "...", после чего возвращает укороченную версию.
+
+// Тесты;
+// Объявлена функция formatMessage(message, maxLength)
+// Вызов функции formatMessage("Curabitur ligula sapien", 16) возвращает "Curabitur ligula..."
+// Вызов функции formatMessage("Curabitur ligula sapien", 23) возвращает "Curabitur ligula sapien"
+// Вызов функции formatMessage("Vestibulum facilisis purus nec", 20) возвращает "Vestibulum facilisis..."
+// Вызов функции formatMessage("Vestibulum facilisis purus nec", 30) возвращает "Vestibulum facilisis purus nec"
+// Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) возвращает "Nunc sed turpis..."
+// Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) возвращает "Nunc sed turpis a felis in nunc fringilla"
+
+// ____________________ ^ ____________________
+// function formatMessage(message, maxLength) {
+//   let result;
+//   if (message.length > maxLength) {
+//     result = `${message.slice(0, maxLength)}...`;
+//   } else if (message.length <= maxLength) {
+//     result = message;
+//   } else {
+//     console.log('');
+//   }
+//   return result;
+// }
+
+// console.log(formatMessage('Curabitur ligula sapien', 16));
+// console.log(formatMessage('Curabitur ligula sapien', 23));
+// console.log(formatMessage('Vestibulum facilisis purus nec', 20));
+// console.log(formatMessage('Vestibulum facilisis purus nec', 30));
+// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));
+// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41));
+
+// ================================== ЗАДАЧА 34 ==================================
+// Методы toLowerCase() и toUpperCase()
+
+// Задание;
+// Функция normalizeInput(input) принимает строку(параметр input) и возвращает такую же строку, но в нижнем регистре.
+// Присвой переменной normalizedInput выражение создания строки в нижнем регистре из параметра input.
+
+// Тесты;
+// Объявлена функция normalizeInput(input)
+// Вызов функции normalizeInput("Hello world") возвращает "hello world"
+// Вызов функции normalizeInput("This ISN'T SpaM") возвращает "this isn't spam"
+// Вызов функции normalizeInput("Big SALE") возвращает "big sale"
+
+// ____________________ ^ ____________________
+// function normalizeInput(input) {
+//   const normalizedInput = input.toLowerCase(); // Change this line
+
+//   return normalizedInput;
+// }
+
+// console.log(normalizeInput('Hello world'));
+// console.log(normalizeInput("This ISN'T SpaM"));
+// console.log(normalizeInput('Big SALE'));
+
+// ================================== ЗАДАЧА 35 ==================================
+// Метод includes()
+
+// Задание;
+// Функция checkName(fullname, name) принимает два параметра и возвращает буль true или false - результат проверки вхождения подстроки name в строку fullname.
+
+// fullname - полное имя состоящее из двух слов (имени и фамилии) разделённых пробелом.
+// name - имя для проверки вхождения в полное имя.
+// Присвой переменной result выражение проверки вхождения имени (параметр name), в полное имя (параметр fullname).
+// Пусть функция строго относится к регистру букв, то есть «Петя» и «петя» для неё разные имена.
+
+// Тесты;
+// Объявлена функция checkForName(fullname, name).
+// Вызов функции checkForName("Egor Kolbasov", "Egor") возвращает true
+// Вызов функции checkForName("Egor Kolbasov", "egor") возвращает false
+// Вызов функции checkForName("Egor Kolbasov", "egOr") возвращает false
+// Вызов функции checkForName("Egor Kolbasov", "Zhenya") возвращает false
+// Вызов функции checkForName("Vadim Nekrasov", "Vadim") возвращает true
+// Вызов функции checkForName("Vadim Nekrasov", "vadim") возвращает false
+// Вызов функции checkForName("Vadim Nekrasov", "Dima") возвращает false
+
+// ____________________ ^ ____________________
+// function checkForName(fullName, name) {
+//   const result = fullName.includes(name); // Change this line
+//   return result;
+// }
+
+// console.log(checkForName('Egor Kolbasov', 'Egor'));
+
+// ================================== ЗАДАЧА 36 ==================================
+// Задача: проверка спама
+// Задание;
+
+// Функция checkForSpam(message) принимает строку(параметр message), проверяет её на содержание запрещенных слов spam и sale,
+// и возвращает результат проверки.Слова в строке параметра message могут быть в произвольном регистре, например SPAM или sAlE.
+
+// Если нашли запрещенное слово (spam или sale) то функция возвращает буль true.
+// Если в строке нет запрещенных слов, функция возвращает буль false.
+
+// Тесты;
+// Объявлена функция checkForSpam(message).
+// Вызов функции checkForSpam("Latest technology news") возвращает false
+// Вызов функции checkForSpam("JavaScript weekly newsletter")возвращает false
+// Вызов функции checkForSpam("Get best sale offers now!") возвращает true
+// Вызов функции checkForSpam("Amazing SalE, only tonight!") возвращает true
+// Вызов функции checkForSpam("Trust me, this is not a spam message") возвращает true
+// Вызов функции checkForSpam("Get rid of sPaM emails. Our book in on sale!") возвращает true
+// Вызов функции checkForSpam("[SPAM] How to earn fast money?") возвращает true
+
+// ____________________ ^ ____________________
+// function checkForSpam(message) {
+//   let result;
+//   // Change code below this line
+//   message = message.toLowerCase();
+//   result = message.includes('spam') || message.includes('sale');
+//   // Change code above this line
+//   return result;
+// }
+
+// console.log(checkForSpam('Latest technology news'));
+// console.log(checkForSpam('JavaScript weekly newsletter'));
+// console.log(checkForSpam('Get best sale offers now!'));
+// console.log(checkForSpam('Amazing SalE, only tonight!'));
+// console.log(checkForSpam('Trust me, this is not a spam message'));
+// console.log(checkForSpam('Get rid of sPaM emails. Our book in on sale!'));
+// console.log(checkForSpam('[SPAM] How to earn fast money?'));
