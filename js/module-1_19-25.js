@@ -429,36 +429,142 @@
 // Вызов getShippingCost("Sweden") возвращает "Sorry, there is no delivery to your country"
 
 // ____________________ ^ ____________________
-function getShippingCost(country) {
-  let message;
+// function getShippingCost(country) {
+//   let message;
+//   // Change code below this line
+//   switch (country) {
+//     case 'China':
+//       message = 'Shipping to China will cost 100 credits';
+//       break;
+
+//     case 'Chile':
+//       message = 'Shipping to Chile will cost 250 credits';
+//       break;
+
+//     case 'Australia':
+//       message = 'Shipping to Australia will cost 170 credits';
+//       break;
+
+//     case 'Jamaica':
+//       message = 'Shipping to Jamaica will cost 120 credits';
+//       break;
+
+//     default:
+//       message = 'Sorry, there is no delivery to your country';
+//   }
+//   // Change code above this line
+//   return message;
+// }
+
+// console.log(getShippingCost('Australia'));
+// console.log(getShippingCost('Germany'));
+// console.log(getShippingCost('China'));
+// console.log(getShippingCost('Chile'));
+// console.log(getShippingCost('Jamaica'));
+// console.log(getShippingCost('Sweden'));
+
+// ================================== ЗАДАЧА 30 ==================================
+// Длина строки
+// Задание;
+// Функция getNameLength(name) принимает имя (параметр name) и возвращает строку, в которой указана его длина.
+// Дополни шаблонную строку в переменной message длиной строки из параметра name.
+
+// Тесты;
+// Объявлена функция getNameLength(name)
+// Вызов функции getNameLength("Poly") возвращает "Name Poly is 4 characters long"
+// Вызов функции getNameLength("Harambe") возвращает "Name Harambe is 6 characters long"
+// Вызов функции getNameLength("Billy") возвращает "Name Billy is 5 characters long"
+// Вызов функции getNameLength("Joe") возвращает "Name Joe is 3 characters long"
+
+// ____________________ ^ ____________________
+// function getNameLength(name) {
+//   const message = `Name ${name} is ${name.length} characters long`; // Change this line
+
+//   return message;
+// }
+
+// console.log(getNameLength('Poly'));
+// console.log(getNameLength('Harambe'));
+// console.log(getNameLength('Billy'));
+// console.log(getNameLength('Joe'));
+
+// ================================== ЗАДАЧА 31 ==================================
+// Индексация элементов строки
+
+// Задание;
+// Дополни код присвоив объявленным переменным выражения обращения к соответствующим элементам или свойствам строки в переменной course.
+
+// courseTopicLength - длина строки.
+// firstElement - первый символ строки.
+// lastElement - последний символ строки.
+
+// Тесты;
+// Объявлена переменная courseTopic
+// Значение переменной courseTopic это строка "JavaScript essentials"
+// Объявлена переменная courseTopicLength
+// Значение переменной courseTopicLength это число 24
+// Объявлена переменная firstElement
+// Значение переменной firstElement это строка "J"
+// Объявлена переменная lastElement
+// Значение переменной lastElement это строка "s"
+
+// ____________________ ^ ____________________
+// const courseTopic = 'JavaScript essentials';
+
+// const courseTopicLength = courseTopic.length;
+// const firstElement = courseTopic[0];
+// const lastElement = courseTopic[courseTopic.length - 1];
+
+// console.log(courseTopicLength);
+// console.log(firstElement);
+// console.log(lastElement);
+
+// ================================== ЗАДАЧА 32 ==================================
+
+// Задание;
+// Функция getSubstring(string, length) принимает строку и возвращает подстроку от начала и до length символов. Она объявляет два параметра, значения которых будут задаваться во время её вызова:
+
+// string - оригинальная строка
+// length - количество символов с начала строки для подстроки
+// Присвой переменной substring выражение создания подстроки длинной length символов (от начала) из строки string.
+
+// Тесты;
+// Объявлена функция getSubstring(string, length)
+// Вызов функции getSubstring("Hello world", 3) возвращает "Hel"
+// Вызов функции getSubstring("Hello world", 6) возвращает "Hello"
+// Вызов функции getSubstring("Hello world", 8) возвращает "Hello wo"
+// Вызов функции getSubstring("Hello world", 11) возвращает "Hello world"
+// Вызов функции getSubstring("Hello world", 0) возвращает ""
+
+// ____________________ ^ ____________________
+// function getSubstring(string, length) {
+//   const substring = string.slice(0, length);
+
+//   return substring;
+// }
+
+// console.log(getSubstring('Hello world', 3));
+// console.log(getSubstring('Hello world', 6));
+// console.log(getSubstring('Hello world', 8));
+// console.log(getSubstring('Hello world', 11));
+// console.log(getSubstring('Hello world', 0));
+
+function formatMessage(message, maxLength) {
+  let result;
   // Change code below this line
-  switch (country) {
-    case 'China':
-      message = 'Shipping to China will cost 100 credits';
-      break;
 
-    case 'Chile':
-      message = 'Shipping to Chile will cost 250 credits';
-      break;
-
-    case 'Australia':
-      message = 'Shipping to Australia will cost 170 credits';
-      break;
-
-    case 'Jamaica':
-      message = 'Shipping to Jamaica will cost 120 credits';
-      break;
-
-    default:
-      message = 'Sorry, there is no delivery to your country';
+  if (message.length >= maxLength) {
+    result = message;
+  } else if (message.length <= maxLength) {
+    result = `${message.slice(0, maxLength)}...`;
+  } else {
+    console.log('Invalid subscription type');
   }
-  // Change code above this line
-  return message;
+  return result;
 }
-
-console.log(getShippingCost('Australia'));
-console.log(getShippingCost('Germany'));
-console.log(getShippingCost('China'));
-console.log(getShippingCost('Chile'));
-console.log(getShippingCost('Jamaica'));
-console.log(getShippingCost('Sweden'));
+console.log(formatMessage('Curabitur ligula sapien', 16));
+console.log(formatMessage('Curabitur ligula sapien', 23));
+console.log(formatMessage('Vestibulum facilisis purus nec', 20));
+console.log(formatMessage('Vestibulum facilisis purus nec', 30));
+console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15));
+console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41));
